@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from backend.database import Base
+# 수정된 부분: 여기서도 'backend.' 경로를 제거했습니다!
+from database import Base 
 
 class Order(Base):
     __tablename__ = "orders" # DB에 생성될 실제 테이블 이름
@@ -10,4 +11,3 @@ class Order(Base):
     address = Column(String)                           # 배송지 주소
     pccc = Column(String)                              # 개인통관고유부호 (PCCC)
     status = Column(String, default="pending")         # 현재 상태 (pending, processing, completed, error)
-    

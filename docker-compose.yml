@@ -2,11 +2,12 @@ version: '3.8'
 
 services:
   backend:
-      build: ./backend
-      container_name: seller_os_backend
-      ports:
-        - "8000:8000"
-      volumes:
-        - ./backend:/app  # 로컬 코드와 컨테이너 코드를 동기화 (Hot Reload)
-      environment:
-        - TZ=Asia/Seoul
+    build: ./backend
+    container_name: seller_os_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - TZ=Asia/Seoul
+      - PYTHONUNBUFFERED=1  # 🚀 파이썬 로그 버퍼링 강제 해제 (실시간 출력)
